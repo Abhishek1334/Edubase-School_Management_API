@@ -21,12 +21,18 @@ const pool = mysql.createPool({
 });
 
 async function testConnection() {
-    try {
-        const [rows] = await pool.query('SELECT 1 as test');
-        console.log('Database connected successfully');
-    } catch (error) {
-        console.error('Database connection failed:', error.message);
-    }
+  try {
+    const [rows] = await pool.query('SELECT 1 as test');
+    console.log('Database connected successfully');
+  } catch (error) {
+    console.error('Database connection failed:', error.message);
+    console.error('Connection config:', {
+      host: dbConfig.host,
+      port: dbConfig.port,
+      user: dbConfig.user,
+      database: dbConfig.database
+    });
+  }
 }
 
 testConnection();
