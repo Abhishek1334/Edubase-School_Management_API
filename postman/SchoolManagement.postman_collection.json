@@ -39,7 +39,7 @@
                 },
                 "body": {
                     "mode": "raw",
-                    "raw": "{\n  \"name\": \"Delhi Public School\",\n  \"address\": \"Sector 12, Delhi\",\n  \"latitude\": 28.7041,\n  \"longitude\": 77.1025\n}"
+                    "raw": "{\n  \"name\": \"Harvard University\",\n  \"address\": \"Cambridge, Massachusetts\",\n  \"latitude\": 42.3744,\n  \"longitude\": -71.1169\n}"
                 }
             },
             "response": [
@@ -49,7 +49,7 @@
                     "status": "Created",
                     "code": 201,
                     "_postman_previewlanguage": "json",
-                    "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Delhi Public School\",\n    \"address\": \"Sector 12, Delhi\",\n    \"latitude\": 28.7041,\n    \"longitude\": 77.1025\n  }\n}"
+                    "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Harvard University\",\n    \"address\": \"Cambridge, Massachusetts\",\n    \"latitude\": 42.3744,\n    \"longitude\": -71.1169\n  }\n}"
                 },
                 {
                     "name": "400 Validation Error",
@@ -66,12 +66,12 @@
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "{{base_url}}/listSchools?latitude=28.7041&longitude=77.1025",
+                    "raw": "{{base_url}}/listSchools?latitude=42.3600&longitude=-71.0900",
                     "host": ["{{base_url}}"],
                     "path": ["listSchools"],
                     "query": [
-                        { "key": "latitude", "value": "28.7041" },
-                        { "key": "longitude", "value": "77.1025" }
+                        { "key": "latitude", "value": "42.3600" },
+                        { "key": "longitude", "value": "-71.0900" }
                     ]
                 }
             },
@@ -82,7 +82,7 @@
                     "status": "OK",
                     "code": 200,
                     "_postman_previewlanguage": "json",
-                    "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Delhi Public School\",\n    \"address\": \"Sector 12, Delhi\",\n    \"latitude\": 28.7041,\n    \"longitude\": 77.1025,\n    \"distance\": 0.0000\n  }\n]"
+                    "body": "[\n  {\n    \"id\": 3,\n    \"name\": \"MIT\",\n    \"address\": \"Cambridge, Massachusetts\",\n    \"latitude\": 42.3601,\n    \"longitude\": -71.0942,\n    \"distance\": 0.0042\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Harvard University\",\n    \"address\": \"Cambridge, Massachusetts\",\n    \"latitude\": 42.3744,\n    \"longitude\": -71.1169,\n    \"distance\": 0.0305\n  }\n]"
                 },
                 {
                     "name": "400 Validation Error",
@@ -98,8 +98,8 @@
     "variable": [
         {
             "key": "base_url",
-            "value": "http://localhost:8080/api",
-            "description": "Local development URL. For Vercel deployment, use: https://your-project-name.vercel.app/api"
+            "value": "https://school-management-api-mauve.vercel.app/api",
+            "description": "Live Vercel deployment URL. For local development, use: http://localhost:8080/api"
         }
     ]
 }
