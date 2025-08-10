@@ -2,6 +2,15 @@
 
 A Node.js REST API for managing schools with location-based search functionality.
 
+## 🌐 Live Demo
+**API URL**: [https://school-management-api-mauve.vercel.app/](https://school-management-api-mauve.vercel.app/)
+
+## 👨‍💻 Developer
+**Abhishek Rajoria**  
+📧 Email: [abhishekrajoria24@gmail.com](mailto:abhishekrajoria24@gmail.com)  
+🌐 Portfolio: [https://abhishek-rajoria.vercel.app/](https://abhishek-rajoria.vercel.app/)  
+📱 GitHub: [https://github.com/Abhishek1334](https://github.com/Abhishek1334)
+
 ## Features
 
 -   Add schools with name, address, and coordinates
