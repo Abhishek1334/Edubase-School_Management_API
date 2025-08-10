@@ -51,8 +51,18 @@ function validateAddSchoolData(data) {
         return { error: 'Name is required' };
     }
 
+    // Check name length (assuming Railway created smaller column)
+    if (data.name.length > 100) {
+        return { error: 'Name is too long (max 100 characters)' };
+    }
+
     if (!validateString(data.address)) {
         return { error: 'Address is required' };
+    }
+
+    // Check address length (assuming Railway created smaller column)
+    if (data.address.length > 200) {
+        return { error: 'Address is too long (max 200 characters)' };
     }
 
     if (!validateLatitude(data.latitude)) {
