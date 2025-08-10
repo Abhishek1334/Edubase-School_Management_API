@@ -17,6 +17,9 @@ export const addSchool = async (req, res) => {
         const sql = 'INSERT INTO schools (name, address, latitude, longitude) VALUES (?, ?, ?, ?)';
         const values = [name, address, latitude, longitude];
 
+        console.log('Executing SQL:', sql);
+        console.log('Values:', values);
+
         const [result] = await pool.execute(sql, values);
 
         const newSchool = {
@@ -29,7 +32,8 @@ export const addSchool = async (req, res) => {
 
         return sendSuccess(res, newSchool, 201);
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error adding school:', error.message);
+        console.error('Error details:', error);
         return sendError(res, 'Error adding school', 500);
     }
 };
