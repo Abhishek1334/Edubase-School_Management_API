@@ -11,9 +11,9 @@
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "{{base_url}}/../healthz",
+                    "raw": "{{base_url}}/../health",
                     "host": ["{{base_url}}"],
-                    "path": ["..", "healthz"]
+                    "path": ["..", "health"]
                 }
             },
             "response": [
