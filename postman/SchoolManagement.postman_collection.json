@@ -1,0 +1,105 @@
+{
+    "info": {
+        "name": "School Management API",
+        "description": "API for managing schools with distance-based sorting. Works with local development and Vercel deployment.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_postman_id": "3d8cbcdf-5c6e-46c0-8f8f-aaa111bbb222"
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{base_url}}/../healthz",
+                    "host": ["{{base_url}}"],
+                    "path": ["..", "healthz"]
+                }
+            },
+            "response": [
+                {
+                    "name": "200 OK",
+                    "originalRequest": {},
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "body": "{\n  \"status\": \"ok\"\n}"
+                }
+            ]
+        },
+        {
+            "name": "Add School",
+            "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": {
+                    "raw": "{{base_url}}/addSchool",
+                    "host": ["{{base_url}}"],
+                    "path": ["addSchool"]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"Delhi Public School\",\n  \"address\": \"Sector 12, Delhi\",\n  \"latitude\": 28.7041,\n  \"longitude\": 77.1025\n}"
+                }
+            },
+            "response": [
+                {
+                    "name": "201 Created",
+                    "originalRequest": {},
+                    "status": "Created",
+                    "code": 201,
+                    "_postman_previewlanguage": "json",
+                    "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Delhi Public School\",\n    \"address\": \"Sector 12, Delhi\",\n    \"latitude\": 28.7041,\n    \"longitude\": 77.1025\n  }\n}"
+                },
+                {
+                    "name": "400 Validation Error",
+                    "originalRequest": {},
+                    "status": "Bad Request",
+                    "code": 400,
+                    "_postman_previewlanguage": "json",
+                    "body": "{\n  \"status\": \"error\",\n  \"message\": \"Name is required\"\n}"
+                }
+            ]
+        },
+        {
+            "name": "List Schools",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{base_url}}/listSchools?latitude=28.7041&longitude=77.1025",
+                    "host": ["{{base_url}}"],
+                    "path": ["listSchools"],
+                    "query": [
+                        { "key": "latitude", "value": "28.7041" },
+                        { "key": "longitude", "value": "77.1025" }
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "200 OK",
+                    "originalRequest": {},
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Delhi Public School\",\n    \"address\": \"Sector 12, Delhi\",\n    \"latitude\": 28.7041,\n    \"longitude\": 77.1025,\n    \"distance\": 0.0000\n  }\n]"
+                },
+                {
+                    "name": "400 Validation Error",
+                    "originalRequest": {},
+                    "status": "Bad Request",
+                    "code": 400,
+                    "_postman_previewlanguage": "json",
+                    "body": "{\n  \"status\": \"error\",\n  \"message\": \"Invalid latitude\"\n}"
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8080/api",
+            "description": "Local development URL. For Vercel deployment, use: https://your-project-name.vercel.app/api"
+        }
+    ]
+}
